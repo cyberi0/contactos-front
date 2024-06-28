@@ -1,0 +1,58 @@
+<div mat-dialog-content>
+  <form>
+    <h2 mat-dialog-title>Detalles del Contacto</h2>
+    <div class="card-container">
+      <div class="content-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre:</mat-label>
+          <input matInput type="text" id="nombre" name="nombre" [(ngModel)]="details.nombre" required>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <h2 mat-dialog-title>Direcciones del Contacto</h2>
+    <div *ngFor="let direccion of details.direcciones; let i = index">
+      <mat-form-field appearance="fill">
+        <mat-label>Dirección {{ i + 1 }}:</mat-label>
+        <input matInput type="text" name="direccion{{ i }}" [(ngModel)]="direccion.calle" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Número {{ i + 1 }}:</mat-label>
+        <input matInput type="text" name="numero{{ i }}" [(ngModel)]="direccion.numero" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Código Postal {{ i + 1 }}:</mat-label>
+        <input matInput type="text" name="codigo_postal{{ i }}" [(ngModel)]="direccion.codigo_postal" required>
+      </mat-form-field>
+      <button mat-button type="button" (click)="eliminarDireccion(i)"><mat-icon>delete</mat-icon></button>
+      <hr>
+    </div>
+    <button mat-button type="button" color="accent" (click)="agregarDireccion()"><mat-icon>add</mat-icon> Dirección</button>
+
+    <hr>
+    <h2 mat-dialog-title>Teléfonos del Contacto</h2>
+    <div *ngFor="let telefono of details.telefonos; let i = index">
+      <mat-form-field appearance="fill">
+        <mat-label>Teléfono {{ i + 1 }}:</mat-label>
+        <input matInput type="text" name="telefono{{ i }}" [(ngModel)]="telefono.numero" required>
+      </mat-form-field>
+      <button mat-button type="button" (click)="eliminarTelefono(i)"><mat-icon>delete</mat-icon></button>
+    </div>
+    <button mat-button type="button" color="accent" (click)="agregarTelefono()"><mat-icon>add</mat-icon> Teléfono</button>
+
+    <hr>
+    <h2 mat-dialog-title>Correos del Contacto</h2>
+    <div *ngFor="let correo of details.correos; let i = index">
+      <mat-form-field appearance="fill">
+        <mat-label>Correo Electrónico {{ i + 1 }}:</mat-label>
+        <input matInput type="email" name="correo{{ i }}" [(ngModel)]="details.correos[i].correo" required>
+      </mat-form-field>
+      <button mat-button type="button" (click)="eliminarCorreo(i)"><mat-icon>delete</mat-icon></button>
+    </div>
+    <button mat-button type="button" color="accent" (click)="agregarCorreo()" ><mat-icon>add</mat-icon> Correo</button>
+  </form>
+</div>
+<div mat-dialog-actions class="align-right">
+  <button mat-button color="accent" (click)="closeDialog()">Cerrar</button>
+  <button mat-button color="accent"  (click)="updateContacto()">Guardar</button>
+</div>

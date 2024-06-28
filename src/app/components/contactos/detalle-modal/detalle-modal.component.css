@@ -1,0 +1,41 @@
+.content-column {
+  flex: 1;
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+
+}
+
+
+.mat-dialog-container {
+  padding: 0;
+  margin: 0;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre elementos */
+  width: 100%;
+  padding: 20px; /* Espacio interno */
+  box-sizing: border-box;
+}
+
+.address-container,
+.phone-container,
+.email-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.mat-form-field {
+  width: 70%;
+}
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
