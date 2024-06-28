@@ -18,6 +18,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { RegistroComponent } from './components/contactos/registro/registro.component';
 import {MatCardModule} from "@angular/material/card";
+import { ToolbarComponent } from './share/toolbar/toolbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -25,7 +28,8 @@ import {MatCardModule} from "@angular/material/card";
     AppComponent,
     ContactosComponent,
     DetalleModalComponent,
-    RegistroComponent
+    RegistroComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,8 @@ import {MatCardModule} from "@angular/material/card";
     MatFormFieldModule,
     MatDialogModule,
     MatCardModule,
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [ContactosService]
 })

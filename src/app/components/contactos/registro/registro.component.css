@@ -1,3 +1,9 @@
+.container {
+  margin: 0 250px;
+  padding-top: 80px;
+
+}
+
 .content-column {
   flex: 1;
 }

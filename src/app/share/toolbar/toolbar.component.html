@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Opciones</span>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="navigateTo('contacto')">Nuevo Contacto</button>
+    <button mat-menu-item (click)="navigateTo('/')">Lista de Contactos</button>
+  </mat-menu>
+</mat-toolbar>
