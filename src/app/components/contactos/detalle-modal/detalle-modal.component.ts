@@ -10,7 +10,12 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['./detalle-modal.component.css']
 })
 export class DetalleModalComponent {
-  details:any;
+  details: any = {
+    direcciones: [],
+    telefonos: [],
+    correos: []
+  };
+
   showButton: boolean = false;
   direcciones: string[] = [''];
   telefonos: string[] = [''];
@@ -41,6 +46,7 @@ export class DetalleModalComponent {
   }
 
   updateContacto() {
+    console.log(this.details);
     this.contactosService.update(this.details)
       .subscribe(response => {
         this._snackBar.open("Contacto Actualizado", 'Cerrar', {
@@ -59,7 +65,7 @@ export class DetalleModalComponent {
 
 
   agregarDireccion() {
-    this.details.direcciones.push('');
+    this.details.direcciones.push({ calle: '', numero: '', codigo_postal: '' });
   }
 
   eliminarDireccion(index: number) {
@@ -67,7 +73,7 @@ export class DetalleModalComponent {
   }
 
   agregarTelefono() {
-    this.details.telefonos.push('');
+    this.details.telefonos.push({ numero: '' });
   }
 
   eliminarTelefono(index: number) {
